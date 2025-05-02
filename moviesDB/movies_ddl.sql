@@ -21,7 +21,16 @@ CREATE TABLE movie_db.directors (
 
 CREATE TABLE movie_db.genres (
     genre_id int NOT NULL PRIMARY KEY,
-    genres varchar(50) DEFAULT NULL,
+    genres varchar(50),
     PRIMARY KEY (`genre_id`)
 )
+
+    CREATE TABLE movie_actor (
+    movie_id int NOT NULL,
+    actor_id int NOT NULL,
+    PRIMARY KEY (movie_id,actor_id),
+    KEY actor_id (actor_id),
+    CONSTRAINT movie_actor FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+    CONSTRAINT movie_actor FOREIGN KEY (actor_id) REFERENCES actors (actor_id)
+) 
 
