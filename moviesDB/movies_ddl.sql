@@ -1,3 +1,4 @@
+--This query creates a table for all the movies in the db, table includes columns title, description, year, etc. 
 CREATE TABLE movie_db.movies (
     movie_id int NOT NULL PRIMARY KEY, 
     title varchar(100),
@@ -7,24 +8,28 @@ CREATE TABLE movie_db.movies (
     rating int
 )
 
+--this query creates a table for all of the actors who are in the movie database.
 CREATE TABLE movie_db.actors (
     actor_id int NOT NULL PRIMARY KEY,
     first_name varchar(50),
     last_name varchar(50)
 )
 
+-- this query creates a table for all of the directors in the movie database.
 CREATE TABLE movie_db.directors (
     director_id int NOT NULL PRIMARY KEY,
     first_name varchar(50),
     last_name varchar(50)
 )
 
+-- this query creates a table for all of the genres in the movie database. 
 CREATE TABLE movie_db.genres (
     genre_id int NOT NULL PRIMARY KEY,
     genres varchar(50)
 )
 
-    CREATE TABLE movie_actor (
+-- this query connects the movies table with the actor table(many to many relationship).
+CREATE TABLE movie_actor (
     movie_id int NOT NULL,
     actor_id int NOT NULL,
     PRIMARY KEY (movie_id,actor_id),
@@ -33,7 +38,8 @@ CREATE TABLE movie_db.genres (
     CONSTRAINT (movie_actor) FOREIGN KEY (actor_id) REFERENCES actors (actor_id)
 ) 
 
-    CREATE TABLE movie_director (
+-- this query connects the movies table with the directors table(many to many relationship)
+CREATE TABLE movie_director (
     movie_id int NOT NULL,
     director_id int NOT NULL,
     PRIMARY KEY (movie_id,director_id),
@@ -42,7 +48,8 @@ CREATE TABLE movie_db.genres (
     CONSTRAINT (movie_director) FOREIGN KEY (director_id) REFERENCES directors (director_id)
 ) 
 
-    CREATE TABLE `movie_genre` (
+-- this query connects the movies table with the genres table(many to many relationship)
+CREATE TABLE `movie_genre` (
     movie_id int NOT NULL,
     genre_id int NOT NULL,
     PRIMARY KEY (movie_id,genre_id),
