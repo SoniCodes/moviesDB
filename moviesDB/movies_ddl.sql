@@ -13,8 +13,15 @@ CREATE TABLE movie_db.actors (
     last_name varchar(50),
 )
 
-CREATE TABLE `directors` (
-    `director_id` int NOT NULL PRIMARY KEY,
-    `first_name` varchar(50),
-    `last_name` varchar(50),
+CREATE TABLE movie_db.directors (
+    director_id int NOT NULL PRIMARY KEY,
+    first_name varchar(50),
+    last_name varchar(50),
 )
+
+CREATE TABLE movie_db.genres (
+    genre_id int NOT NULL PRIMARY KEY,
+    genres varchar(50) DEFAULT NULL,
+    PRIMARY KEY (`genre_id`)
+)
+
