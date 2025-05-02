@@ -34,3 +34,12 @@ CREATE TABLE movie_db.genres (
     CONSTRAINT movie_actor FOREIGN KEY (actor_id) REFERENCES actors (actor_id)
 ) 
 
+    CREATE TABLE movie_director (
+    movie_id int NOT NULL,
+    director_id int NOT NULL,
+    PRIMARY KEY (movie_id,director_id),
+    KEY director_id (director_id),
+    CONSTRAINT movie_director FOREIGN KEY (movie_id) REFERENCES movies (movie_id),
+    CONSTRAINT movie_director FOREIGN KEY (director_id) REFERENCES directors (director_id)
+) 
+
